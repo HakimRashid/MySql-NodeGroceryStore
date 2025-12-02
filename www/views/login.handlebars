@@ -1,0 +1,136 @@
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+        color: #1a202c;
+    }
+
+    .site-header {
+        background: #1f2933;
+        color: #fff;
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .site-header h1 {
+        margin: 0;
+        font-size: 26px;
+    }
+
+    .site-header nav a {
+        color: #f6e05e;
+        margin-left: 15px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .site-header nav a:hover {
+        text-decoration: underline;
+    }
+
+    .login-card {
+        max-width: 420px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .login-card h3 {
+        margin-top: 0;
+        font-size: 26px;
+    }
+
+    .error-message {
+        background: #fed7d7;
+        color: #c53030;
+        border: 1px solid #feb2b2;
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin: 10px 0 20px;
+        font-weight: 600;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        text-align: left;
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cbd5e0;
+        border-radius: 8px;
+        font-size: 15px;
+    }
+
+    .submit-btn {
+        background: #2b6cb0;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+        background: #245a99;
+    }
+</style>
+
+<header class="site-header">
+    <div>
+        <h1>DanHak Grocery</h1>
+        <p style="margin:4px 0 0;">Fresh picks, delivered smart.</p>
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/listprod">Shop</a>
+        <a href="/showcart">Cart</a>
+        <a href="/listorder">Orders</a>
+    </nav>
+</header>
+
+<div class="login-card">
+    <h3>Please Login</h3>
+
+    {{#if loginMessage}}
+    <div class="error-message">
+        {{loginMessage}}
+    </div>
+    {{/if}}
+
+    <form method="post" action="/validateLogin">
+        <div class="form-row">
+            <label>Username</label>
+            <input type="text" name="username" maxlength="10">
+        </div>
+
+        <div class="form-row">
+            <label>Password</label>
+            <input type="password" name="password" maxlength="10">
+        </div>
+
+        <button type="submit" class="submit-btn">Log In</button>
+    </form>
+</div>
