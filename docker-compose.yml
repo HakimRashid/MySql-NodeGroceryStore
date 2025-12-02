@@ -59,6 +59,9 @@ services:
       network304:
         aliases:
           - cosc304_sqlserver
+    
+    command: /opt/mssql/bin/sqlservr
+
     healthcheck:
       test:
         [
